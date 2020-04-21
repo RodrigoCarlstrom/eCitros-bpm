@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1kokmf3" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="3.6.0">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1kokmf3" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="3.7.0">
   <bpmn:process id="CadastroDeUsuarioProcess" name="Cadastro de usuário" isExecutable="true">
     <bpmn:startEvent id="InicioStartEvent" name="Início">
       <bpmn:outgoing>SequenceFlow_1bp8pf9</bpmn:outgoing>
     </bpmn:startEvent>
     <bpmn:sequenceFlow id="SequenceFlow_1bp8pf9" sourceRef="InicioStartEvent" targetRef="EnviarEmailDeConfirmacaoTask" />
-    <bpmn:serviceTask id="EnviarEmailDeConfirmacaoTask" name="Enviar e-mail de confirmação">
+    <bpmn:serviceTask id="EnviarEmailDeConfirmacaoTask" name="Enviar e-mail de confirmação" camunda:class="br.com.evoluo.citros.bpm.identity.user.EnviarEmailDeConfirmacaoTask">
       <bpmn:incoming>SequenceFlow_1bp8pf9</bpmn:incoming>
       <bpmn:incoming>SequenceFlow_1sgo36j</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_1831412</bpmn:outgoing>
@@ -23,10 +23,6 @@
       <bpmn:incoming>SequenceFlow_0laz7l9</bpmn:incoming>
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="SequenceFlow_0laz7l9" sourceRef="CadastrarUsuarioNaPlataformaTask" targetRef="CadastradoComSucessoEndEvent" />
-    <bpmn:serviceTask id="CadastrarUsuarioNaPlataformaTask" name="Cadastrar usuário na plataforma">
-      <bpmn:incoming>SequenceFlow_00pfurc</bpmn:incoming>
-      <bpmn:outgoing>SequenceFlow_0laz7l9</bpmn:outgoing>
-    </bpmn:serviceTask>
     <bpmn:boundaryEvent id="N8DiasBoundaryEvent" name="7 dias" attachedToRef="ConfirmarEnderecoDeEmailTask">
       <bpmn:outgoing>SequenceFlow_0wd5642</bpmn:outgoing>
       <bpmn:timerEventDefinition id="TimerEventDefinition_0jxorks">
@@ -38,14 +34,18 @@
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="SequenceFlow_0wd5642" sourceRef="N8DiasBoundaryEvent" targetRef="ComunicarCadastroExpiradoTask" />
     <bpmn:sequenceFlow id="SequenceFlow_0odpgel" sourceRef="ComunicarCadastroExpiradoTask" targetRef="CadastroExpiradoEndEvent" />
-    <bpmn:serviceTask id="ComunicarCadastroExpiradoTask" name="Comunicar cadastro expirado">
-      <bpmn:incoming>SequenceFlow_0wd5642</bpmn:incoming>
-      <bpmn:outgoing>SequenceFlow_0odpgel</bpmn:outgoing>
-    </bpmn:serviceTask>
     <bpmn:userTask id="ConfirmarEnderecoDeEmailTask" name="Confirmar endereço de email">
       <bpmn:incoming>SequenceFlow_1831412</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_00pfurc</bpmn:outgoing>
     </bpmn:userTask>
+    <bpmn:task id="CadastrarUsuarioNaPlataformaTask" name="Cadastrar usuário na plataforma">
+      <bpmn:incoming>SequenceFlow_00pfurc</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0laz7l9</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="ComunicarCadastroExpiradoTask" name="Comunicar cadastro expirado">
+      <bpmn:incoming>SequenceFlow_0wd5642</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0odpgel</bpmn:outgoing>
+    </bpmn:task>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="CadastroDeUsuarioProcess">
@@ -92,9 +92,6 @@
         <di:waypoint x="690" y="177" />
         <di:waypoint x="752" y="177" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="ServiceTask_14bvu2o_di" bpmnElement="CadastrarUsuarioNaPlataformaTask">
-        <dc:Bounds x="590" y="137" width="100" height="80" />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="BoundaryEvent_17ittzl_di" bpmnElement="N8DiasBoundaryEvent" bioc:stroke="#000" bioc:fill="#fff">
         <dc:Bounds x="442" y="199" width="36" height="36" />
         <bpmndi:BPMNLabel>
@@ -116,11 +113,14 @@
         <di:waypoint x="690" y="300" />
         <di:waypoint x="752" y="300" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="ServiceTask_19tgxhp_di" bpmnElement="ComunicarCadastroExpiradoTask">
-        <dc:Bounds x="590" y="260" width="100" height="80" />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="UserTask_0e5qqj2_di" bpmnElement="ConfirmarEnderecoDeEmailTask">
         <dc:Bounds x="430" y="137" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_15oseli_di" bpmnElement="CadastrarUsuarioNaPlataformaTask">
+        <dc:Bounds x="590" y="137" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1b1g3eq_di" bpmnElement="ComunicarCadastroExpiradoTask">
+        <dc:Bounds x="590" y="260" width="100" height="80" />
       </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
