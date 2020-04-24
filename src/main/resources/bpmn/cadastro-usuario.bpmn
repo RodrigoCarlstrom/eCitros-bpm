@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1kokmf3" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="3.7.0">
   <bpmn:process id="CadastroDeUsuarioProcess" name="Cadastro de usuário" isExecutable="true">
-    <bpmn:startEvent id="InicioStartEvent" name="Início">
+    <bpmn:startEvent id="InicioStartEvent" name="Início" camunda:asyncBefore="true" camunda:asyncAfter="true">
       <bpmn:outgoing>SequenceFlow_1bp8pf9</bpmn:outgoing>
     </bpmn:startEvent>
     <bpmn:sequenceFlow id="SequenceFlow_1bp8pf9" sourceRef="InicioStartEvent" targetRef="EnviarEmailDeConfirmacaoTask" />
-    <bpmn:serviceTask id="EnviarEmailDeConfirmacaoTask" name="Enviar e-mail de confirmação" camunda:class="br.com.evoluo.citros.bpm.identity.user.EnviarEmailDeConfirmacaoTask">
+    <bpmn:serviceTask id="EnviarEmailDeConfirmacaoTask" name="Enviar e-mail de confirmação" camunda:asyncBefore="true" camunda:asyncAfter="true" camunda:class="br.com.evoluo.citros.bpm.identity.user.EnviarEmailDeConfirmacaoTask">
       <bpmn:incoming>SequenceFlow_1bp8pf9</bpmn:incoming>
       <bpmn:incoming>SequenceFlow_1sgo36j</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_1831412</bpmn:outgoing>

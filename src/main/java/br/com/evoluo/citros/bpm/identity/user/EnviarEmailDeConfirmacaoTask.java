@@ -9,6 +9,7 @@ public class EnviarEmailDeConfirmacaoTask implements JavaDelegate {
 	@Override
 	public void execute(DelegateExecution execution) throws Exception {
 		User user = (User) execution.getVariable("user");
+		//System.out.println(user.getEmail());
 	}
 
 }
