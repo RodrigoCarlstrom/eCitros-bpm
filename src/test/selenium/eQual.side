@@ -1,0 +1,260 @@
+{
+  "id": "e4c7d724-1604-4a62-9f85-ac52b01119da",
+  "version": "2.0",
+  "name": "eQual",
+  "url": "http://localhost:4200",
+  "tests": [{
+    "id": "34200fb9-8ed0-496f-82b3-f8409fc18832",
+    "name": "signUp - Rodrigo Carlstrom",
+    "commands": [{
+      "id": "0534317f-0767-4b28-b50a-1ce69629a4bb",
+      "comment": "",
+      "command": "open",
+      "target": "/index",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "19f19906-2d3b-4171-b7ad-bed191b79684",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1346x708",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4c5aeac4-63fd-41bc-badb-777bec249f3f",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "id=signin-button",
+      "targets": [
+        ["id=signin-button", "id"],
+        ["css=#signin-button", "css:finder"],
+        ["xpath=//button[@id='signin-button']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarSupportedContent']/form/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,' Cadastrar')]", "xpath:innerText"]
+      ],
+      "value": "1000"
+    }, {
+      "id": "34909c12-2c6e-4539-bc57-1df52411dae1",
+      "comment": "",
+      "command": "click",
+      "target": "id=signin-button",
+      "targets": [
+        ["id=signin-button", "id"],
+        ["css=#signin-button", "css:finder"],
+        ["xpath=//button[@id='signin-button']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarSupportedContent']/form/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,' Cadastrar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "25720a59-e4da-462b-8efa-d9e1f461f925",
+      "comment": "",
+      "command": "click",
+      "target": "name=id",
+      "targets": [
+        ["name=id", "name"],
+        ["css=.ng-touched:nth-child(2)", "css:finder"],
+        ["xpath=//input[@name='id']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d35039ad-49c1-49e0-85b6-a597395ca1e3",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "name=id",
+      "targets": [
+        ["name=id", "name"],
+        ["css=.ng-touched:nth-child(2)", "css:finder"],
+        ["xpath=//input[@name='id']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "1000"
+    }, {
+      "id": "8483fa3d-85ee-4874-9abc-1be3aae2dc3a",
+      "comment": "",
+      "command": "type",
+      "target": "name=id",
+      "targets": [
+        ["name=id", "name"],
+        ["css=.ng-touched:nth-child(2)", "css:finder"],
+        ["xpath=//input[@name='id']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "128.588.698-47"
+    }, {
+      "id": "b259f373-f6d9-4046-b167-e4460e267520",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "name=firstName",
+      "targets": [
+        ["name=firstName", "name"],
+        ["css=.form-group:nth-child(2) .ng-invalid", "css:finder"],
+        ["xpath=//input[@name='firstName']", "xpath:attributes"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": "1000"
+    }, {
+      "id": "693d3696-4087-421d-97e2-36cde87e7904",
+      "comment": "",
+      "command": "type",
+      "target": "name=firstName",
+      "targets": [
+        ["name=firstName", "name"],
+        ["css=.form-group:nth-child(2) .ng-dirty", "css:finder"],
+        ["xpath=//input[@name='firstName']", "xpath:attributes"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": "Rodrigo"
+    }, {
+      "id": "9aedf852-e7ee-4232-8235-964fc7d0ffd1",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "name=lastName",
+      "targets": [
+        ["name=lastName", "name"],
+        ["css=.form-control:nth-child(3)", "css:finder"],
+        ["xpath=//input[@name='lastName']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "1000"
+    }, {
+      "id": "054c78ad-2199-4a2b-b989-7c7667d85670",
+      "comment": "",
+      "command": "type",
+      "target": "name=lastName",
+      "targets": [
+        ["name=lastName", "name"],
+        ["css=.form-control:nth-child(3)", "css:finder"],
+        ["xpath=//input[@name='lastName']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "Carlstrom"
+    }, {
+      "id": "51b7de87-cce6-4496-844c-01685dfc63ea",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.form-group:nth-child(3) .form-control", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//div[3]/div/input", "xpath:position"]
+      ],
+      "value": "1000"
+    }, {
+      "id": "62cac639-67ae-4fb9-8a55-75e359801b09",
+      "comment": "",
+      "command": "type",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.form-group:nth-child(3) .form-control", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//div[3]/div/input", "xpath:position"]
+      ],
+      "value": "rodrigocarlstrom@gmail.com"
+    }, {
+      "id": "695229ac-047b-4b74-aa83-afb014fefc07",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "id=repeatEmail",
+      "targets": [
+        ["id=repeatEmail", "id"],
+        ["name=repeatEmail", "name"],
+        ["css=#repeatEmail", "css:finder"],
+        ["xpath=//input[@id='repeatEmail']", "xpath:attributes"],
+        ["xpath=//div[4]/div/input", "xpath:position"]
+      ],
+      "value": "1000"
+    }, {
+      "id": "148bb98c-479a-4cb7-9434-1b05beae6165",
+      "comment": "",
+      "command": "click",
+      "target": "id=repeatEmail",
+      "targets": [
+        ["id=repeatEmail", "id"],
+        ["name=repeatEmail", "name"],
+        ["css=#repeatEmail", "css:finder"],
+        ["xpath=//input[@id='repeatEmail']", "xpath:attributes"],
+        ["xpath=//div[4]/div/input", "xpath:position"]
+      ],
+      "value": "1000"
+    }, {
+      "id": "b96770d4-61f0-4c45-87e9-085df862fe87",
+      "comment": "",
+      "command": "type",
+      "target": "id=repeatEmail",
+      "targets": [
+        ["id=repeatEmail", "id"],
+        ["name=repeatEmail", "name"],
+        ["css=#repeatEmail", "css:finder"],
+        ["xpath=//input[@id='repeatEmail']", "xpath:attributes"],
+        ["xpath=//div[4]/div/input", "xpath:position"]
+      ],
+      "value": "rodrigocarlstrom@gmail.com"
+    }, {
+      "id": "b6530d69-f762-4b55-8fea-1a6aada28cac",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.float-right > #signup-button",
+      "targets": [
+        ["css=.float-right > #signup-button", "css:finder"],
+        ["xpath=(//button[@id='signup-button'])[2]", "xpath:attributes"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,' Cadastrar')]", "xpath:innerText"]
+      ],
+      "value": "1000"
+    }, {
+      "id": "25303ab1-889c-45a0-b998-05829f0fde48",
+      "comment": "",
+      "command": "click",
+      "target": "css=.float-right > #signup-button",
+      "targets": [
+        ["css=.float-right > #signup-button", "css:finder"],
+        ["xpath=(//button[@id='signup-button'])[2]", "xpath:attributes"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,' Cadastrar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "223638dc-2607-4642-a0dc-32878a662bdc",
+      "comment": "",
+      "command": "waitForText",
+      "target": "id=alert-title-0",
+      "targets": [
+        ["id=alert-title-0", "id"],
+        ["css=#alert-title-0", "css:finder"],
+        ["xpath=//strong[@id='alert-title-0']", "xpath:attributes"],
+        ["xpath=//div[@id='alert-0']/strong", "xpath:idRelative"],
+        ["xpath=//strong", "xpath:position"],
+        ["xpath=//strong[contains(.,'Cadastro efetuado com sucesso!')]", "xpath:innerText"]
+      ],
+      "value": "Cadastro efetuado com sucesso!"
+    }, {
+      "id": "ae702472-2ebf-454c-9307-0815eb97f253",
+      "comment": "",
+      "command": "waitForText",
+      "target": "id=alert-0",
+      "targets": [
+        ["id=alert-0", "id"],
+        ["css=#alert-0", "css:finder"],
+        ["xpath=//div[@id='alert-0']", "xpath:attributes"],
+        ["xpath=//div/div/div", "xpath:position"]
+      ],
+      "value": "Cadastro efetuado com sucesso! Olá Rodrigo, sua senha foi enviada para o e-mail rodrigocarlstrom@gmail.com!\\n×"
+    }]
+  }],
+  "suites": [{
+    "id": "55fffc3a-1209-4356-9ce0-a151f85a0b3c",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["34200fb9-8ed0-496f-82b3-f8409fc18832"]
+  }],
+  "urls": ["http://localhost:4200/"],
+  "plugins": []
+}
