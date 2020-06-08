@@ -1,7 +1,5 @@
 package br.com.evoluo.citros.bpm.identity.user;
 
-import java.util.List;
-
 import javax.mail.internet.AddressException;
 
 import org.camunda.bpm.engine.IdentityService;
@@ -33,7 +31,7 @@ public class EnviarEmailDeConfirmacaoTask implements JavaDelegate {
 		String email = jsonUser.prop("profile").prop("email").stringValue();
 		user = idendityService.createUserQuery().userEmail(email).singleResult();
 		if (user != null) {
-			throw new IdentityException("Email " + id + " já cadastrado!");
+			throw new IdentityException("Email " + email + " já cadastrado!");
 		}
 
 		String firstName = jsonUser.prop("profile").prop("firstName").stringValue();
